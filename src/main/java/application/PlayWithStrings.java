@@ -4,20 +4,20 @@ import java.util.Arrays;
 
 public class PlayWithStrings {
     public static void main(String[] args) {
-        //System.out.println("Hello String World");
-        String name = "Robert i";
-        String name2 = "itrebor";
 
+        String nameInitial1 = "Robert";
+        String nameInitial2 = "Kohl";
 
-        printIntitials(name, name2);
-        System.out.println(areAnagrams(name, name2));
+        String nameAnagram1 ="Robert";
+        String nameAnagram2="t rebor";
 
-//        System.out.println(newName.compareTo(newName2));
-//
-//
-//        System.out.println(newName);
-//        System.out.println(newName2);
+        String valuePalindrom = "Eva can I see bees in a cave";
+
+        printIntitials(nameInitial1, nameInitial2);
+        areAnagrams(nameAnagram1, nameAnagram2);
+        isPalindrome(valuePalindrom);
     }
+///////////////////////////////////////////////////////////////////////// Methods
 
     /**
      * TODO: print initials
@@ -57,11 +57,10 @@ public class PlayWithStrings {
             Arrays.sort(arr1);
             Arrays.sort(arr2);
             if (Arrays.equals(arr1, arr2)) {
-                return true;
+                System.out.println("The values are anagrams!!");
             }
-//            System.out.println(arr1);
-//            System.out.println(arr2);
         } else {
+            System.out.println("The values are NO anagrams");
             return false;
         }
         return true;
@@ -82,6 +81,19 @@ public class PlayWithStrings {
      * @return true if it is a palindrome, false otherwise.
      */
     public static boolean isPalindrome(String value) {
+        String replaceString = value.replaceAll(" ", "").toLowerCase();
+        char[] charArray = replaceString.toCharArray();
+        char[] newCharArray = new char[charArray.length];
+        int j = 0;
+        for (int i = newCharArray.length -1; i >= 0; i--) {
+            newCharArray[j] = charArray[i];
+            j++;
+        }
+        if(Arrays.equals(charArray, newCharArray)){
+            System.out.println("The Value is an palindrom!");
+            return true;
+        }
+        System.out.println("The Value is NO palindrom!");
         return false;
     }
 }
